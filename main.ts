@@ -30,6 +30,9 @@ function problemsWith(text: string): string[] {
   if (/[\u0000-\u001f\u007f]/.test(text)) {
     found.push("control character inside the line");
   }
+  if (/[\u200b-\u200d\ufeff]/.test(text)) {
+    found.push("zero-width character inside the line");
+  }
   return found;
 }
 
